@@ -21,9 +21,9 @@ class TableRows extends RecursiveIteratorIterator {
 }
 
 $dbserver = "localhost";
-$dbuser = "testuser";
-$dbpass = "test123test!";
-$db = "testdb";
+$dbuser = "statusreports";
+$dbpass = "G9EI389uu4";
+$db = "statusreportsdb";
 $dbtable = "statuslog";
 
 try {

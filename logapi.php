@@ -45,9 +45,9 @@ function auth_cols($cmd,$db,$tab,$col) {
 $api = new PHP_CRUD_API(array(
 		'dbengine'=>'mysql',
 		'hostname'=>'localhost',
-		'username'=>'testuser',
-		'password'=>'test123test!',
-		'database'=>'testdb',
+		'username'=>'statusreports',
+		'password'=>'G9EI389uu4',
+		'database'=>'statusreportsdb',
 		'table_authorizer'=>'auth_command',
 		'tenancy_function'=>'tenancy_username',
 		'column_authorizer'=>'auth_cols'
