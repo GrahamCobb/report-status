@@ -1,9 +1,15 @@
 RewriteEngine On
 RewriteBase /report-status/
 
+# API root is /statuslog
 RewriteRule ^(statuslog(/.*)?)$ logapi.php/$1 [L,QSA]
 
+# Directory search sends full log
 RewriteRule ^$ log.php [L,QSA]
 
+# Disallow access to library files
+RewriteRule ^php-crud-api/ - [F]
+
+# Disallow access to non-php files
 RewriteCond %{REQUEST_FILENAME} !.php
 RewriteRule . - [F]
