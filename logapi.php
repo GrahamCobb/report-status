@@ -9,7 +9,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     echo 'Forbidden';
     exit;
 }
-include "php-crud-api/api.php";
+include $CONTEXT_DOCUMENT_ROOT."php-crud-api/api.php";
 
 function auth_command($cmd,$db,$tab) {
 	 // Read, list - always allowed
