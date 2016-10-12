@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteBase /report-status/
+
+RewriteRule ^(statuslog(/.*)?)$ logapi.php/$1 [L,QSA]
+
+RewriteRule ^$ log.php [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !.php
+RewriteRule . - [F]
