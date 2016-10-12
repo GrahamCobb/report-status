@@ -1,4 +1,5 @@
 <?php
+/* Auth is now handled in apache using a .htaccess file
 if (!isset($_SERVER['PHP_AUTH_USER'])) {
     header('WWW-Authenticate: Basic realm="Report Status"');
     header('HTTP/1.0 401 Unauthorized');
@@ -9,6 +10,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     echo 'Forbidden';
     exit;
 }
+*/
 include $_SERVER['CONTEXT_DOCUMENT_ROOT']."php-crud-api/api.php";
 
 function auth_command($cmd,$db,$tab) {
