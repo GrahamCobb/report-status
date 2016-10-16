@@ -32,7 +32,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->exec("use $db");
 
-    $stmt = $conn->prepare("SELECT * FROM $dbtable");
+    $stmt = $conn->prepare("SELECT * FROM $dbtable ORDER BY log_time DESC");
     $stmt->execute();
     // set the resulting array to associative
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
