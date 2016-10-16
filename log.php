@@ -22,9 +22,10 @@ class TableRows extends RecursiveIteratorIterator {
 
 $dbserver = "localhost";
 $dbuser = "statusreports";
-$dbpass = "G9EI389uu4";
+$dbpass = "password";
 $db = "statusreportsdb";
 $dbtable = "statuslog";
+include "dbdetails";
 
 try {
     $conn = new PDO("mysql:host=$dbserver", $dbuser, $dbpass);

@@ -11,7 +11,14 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     exit;
 }
 */
-include $_SERVER['CONTEXT_DOCUMENT_ROOT']."php-crud-api/api.php";
+require $_SERVER['CONTEXT_DOCUMENT_ROOT']."php-crud-api/api.php";
+
+$dbserver = "localhost";
+$dbuser = "statusreports";
+$dbpass = "password";
+$db = "statusreportsdb";
+$dbtable = "statuslog";
+include "dbdetails";
 
 function auth_command($cmd,$db,$tab) {
 	 // Read, list - always allowed
@@ -46,10 +53,10 @@ function auth_cols($cmd,$db,$tab,$col) {
 
 $api = new PHP_CRUD_API(array(
 		'dbengine'=>'mysql',
-		'hostname'=>'localhost',
-		'username'=>'statusreports',
-		'password'=>'G9EI389uu4',
-		'database'=>'statusreportsdb',
+		'hostname'=>$dbserver,
+		'username'=>$dbuser,
+		'password'=>$dbpass,
+		'database'=>$db,
 		'table_authorizer'=>'auth_command',
 		'tenancy_function'=>'tenancy_username',
 		'column_authorizer'=>'auth_cols'
