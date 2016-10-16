@@ -25,7 +25,7 @@ $dbuser = "statusreports";
 $dbpass = "password";
 $db = "statusreportsdb";
 $dbtable = "statuslog";
-include $_SERVER['CONTEXT_DOCUMENT_ROOT']."dbdetails";
+include "dbdetails";
 
 try {
     $conn = new PDO("mysql:host=$dbserver", $dbuser, $dbpass);
