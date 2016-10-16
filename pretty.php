@@ -34,7 +34,7 @@ try {
     $conn->exec("use $db");
 
     /* For each combination of source and target */
-    $stmt = $conn->prepare("SELECT DISTINCT source,target FROM $dbtable");
+    $stmt = $conn->prepare("SELECT DISTINCT source,target FROM $dbtable ORDER BY log_time DESC");
     $stmt->execute();
     foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $combination) {
 	    $s = $combination["source"];
