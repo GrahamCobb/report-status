@@ -18,7 +18,7 @@ $dbuser = "statusreports";
 $dbpass = "password";
 $db = "statusreportsdb";
 $dbtable = "statuslog";
-include "dbdetails";
+include "dbdetails.php";
 
 function auth_command($cmd,$db,$tab) {
 	 // Read, list - always allowed

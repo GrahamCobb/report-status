@@ -25,7 +25,7 @@ $dbuser = "statusreports";
 $dbpass = "password";
 $db = "statusreportsdb";
 $dbtable = "statuslog";
-include "dbdetails";
+include "dbdetails.php";
 
 try {
     $conn = new PDO("mysql:host=$dbserver", $dbuser, $dbpass);
