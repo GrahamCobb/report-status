@@ -11,7 +11,7 @@ if (!isset($_SERVER['PHP_AUTH_USER'])) {
     exit;
 }
 */
-require $_SERVER['CONTEXT_DOCUMENT_ROOT']."php-crud-api/api.php";
+require "php-crud-api/api.php";
 
 $dbserver = "localhost";
 $dbuser = "statusreports";
