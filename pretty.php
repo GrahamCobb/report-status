@@ -58,7 +58,7 @@ try {
 	       $stmt = $conn->prepare("SELECT source,target,status,log_text,log_time FROM $dbtable WHERE source='$s' AND target='$t' AND status IS NULL AND log_time >= '$log_time' ORDER BY log_time DESC");
 	       $stmt->execute();
 	       foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
-	       	       echo " <div class="row log">\n";
+	       	       echo " <div class=\"row log\">\n";
 		       echo "  <div class=\"cell\">".$row['source']."</div>\n";
 		       echo "  <div class=\"cell\">".$row['target']."</div>\n";
 		       echo "  <div class=\"cell\">".$row['status']."</div>\n";
