@@ -9,14 +9,14 @@
 <body>
 
 <?php
-echo '<div class="table">\n';
-echo ' <div class="row header">\n';
-echo '  <div class="cell">Source</div>\n';
-echo '  <div class="cell">Target</div>\n';
-echo '  <div class="cell">Status</div>\n';
-echo '  <div class="cell">Log</div>\n';
-echo '  <div class="cell">Time</div>\n';
-echo ' </div>\n';
+echo "<div class=\"table\">\n";
+echo " <div class=\"row header\">\n";
+echo "  <div class=\"cell\">Source</div>\n";
+echo "  <div class=\"cell\">Target</div>\n";
+echo "  <div class=\"cell\">Status</div>\n";
+echo "  <div class=\"cell\">Log</div>\n";
+echo "  <div class=\"cell\">Time</div>\n";
+echo " </div>\n";
 
 $dbserver = "localhost";
 $dbuser = "statusreports";
@@ -45,26 +45,26 @@ try {
 	    if (count($rows) > 0) {
 	       $log_time = $rows[0]['log_time'];
 	       foreach ($rows as $row) {
-	       	       echo ' <div class="row">\n';
-		       echo '  <div class="cell">'.$row['source'].'</div>\n';
-		       echo '  <div class="cell">'.$row['target'].'</div>\n';
-		       echo '  <div class="cell">'.$row['status'].'</div>\n';
-		       echo '  <div class="cell">'.$row['log_text'].'</div>\n';
-		       echo '  <div class="cell">'.$row['log_time'].'</div>\n';
-		       echo ' </div>\n';
+	       	       echo " <div class=\"row\">\n";
+		       echo "  <div class=\"cell\">".$row['source']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['target']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['status']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['log_text']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['log_time']."</div>\n";
+		       echo " </div>\n";
 	       }
 
 	       /* And any subsequent log messages */
 	       $stmt = $conn->prepare("SELECT source,target,status,log_text,log_time FROM $dbtable WHERE source='$s' AND target='$t' AND status IS NULL AND log_time >= '$log_time' ORDER BY log_time DESC");
 	       $stmt->execute();
 	       foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
-	       	       echo ' <div class="row log">\n';
-		       echo '  <div class="cell">'.$row['source'].'</div>\n';
-		       echo '  <div class="cell">'.$row['target'].'</div>\n';
-		       echo '  <div class="cell">'.$row['status'].'</div>\n';
-		       echo '  <div class="cell">'.$row['log_text'].'</div>\n';
-		       echo '  <div class="cell">'.$row['log_time'].'</div>\n';
-		       echo ' </div>\n';
+	       	       echo " <div class="row log">\n";
+		       echo "  <div class=\"cell\">".$row['source']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['target']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['status']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['log_text']."</div>\n";
+		       echo "  <div class=\"cell\">".$row['log_time']."</div>\n";
+		       echo " </div>\n";
 	       }
 	   } 
     }
@@ -82,7 +82,7 @@ catch(PDOException $e)
     }
 
 $conn = null;
-echo '</div>';
+echo "</div>";
 ?>
 
 </body>
