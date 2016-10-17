@@ -4,6 +4,33 @@
 <head>
  <title>Status Report</title>
  <style>
+ .table {
+   display: table;
+ }
+ .row {
+   display: table-row;
+ }
+ .header {
+   color: white;
+   background: blue;
+ }
+ .cell {
+   display: block;
+   padding: 2px 12px;
+ }
+ .good {
+   background: lime;
+ }
+ .bad {
+   background: red;
+ }
+ .middling {
+   background: grey;
+ }
+ .log {
+   color: grey;
+   background: white;
+ }
  </style>
 </head>
 <body>
