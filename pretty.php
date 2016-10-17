@@ -72,9 +72,9 @@ try {
 	    if (count($rows) > 0) {
 	       $log_time = $rows[0]['log_time'];
 	       foreach ($rows as $row) {
-	       	       if ($row['status'] >= 100) {$status = "good"}
-		       elseif ($row['status'] <= -100) {$status = "bad"}
-		       else $status = "middling";
+	       	       if ($row['status'] >= 100) {$status = "good";}
+		       elseif ($row['status'] <= -100) {$status = "bad";}
+		       else {$status = "middling";};
 	       	       echo " <div class=\"row ".$status."\">\n";
 		       echo "  <div class=\"cell\">".$row['source']."</div>\n";
 		       echo "  <div class=\"cell\">".$row['target']."</div>\n";
