@@ -6,30 +6,31 @@
  <style>
  .table {
    display: table;
+   background: ghostwhite;
  }
  .row {
    display: table-row;
  }
  .header {
+   font-weight: bold;
    color: white;
-   background: blue;
+   background: lightskyblue;
  }
  .cell {
    display: table-cell;
-   padding: 2px 12px;
+   padding: 4px 8px;
  }
  .good {
    background: lime;
  }
  .bad {
-   background: red;
+   background: crimson;
  }
  .middling {
-   background: grey;
+   background: gainsboro;
  }
  .log {
    color: grey;
-   background: white;
  }
  </style>
 </head>
