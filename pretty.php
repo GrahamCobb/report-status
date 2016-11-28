@@ -77,19 +77,18 @@ ORDER BY log_time DESC LIMIT 1");
 	    $stmt->execute();
 	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	    if (count($rows) > 0) {
+	       /* Will be exactly one row */
 	       $log_time = $rows[0]['log_time'];
-	       foreach ($rows as $row) {
-	       	       if ($row['status'] >= 100) {$status = "good";}
-		       elseif ($row['status'] <= -100) {$status = "bad";}
-		       else {$status = "middling";};
-	       	       echo " <div class=\"row ".$status."\">\n";
-		       echo "  <div class=\"cell\">".$row['source']."</div>\n";
-		       echo "  <div class=\"cell\">".$row['target']."</div>\n";
-		       echo "  <div class=\"cell\">".$row['status']."</div>\n";
-		       echo "  <div class=\"cell\">".$row['log_text']."</div>\n";
-		       echo "  <div class=\"cell\">".$row['log_time']."</div>\n";
-		       echo " </div>\n";
-	       }
+	       if ($rows[0]['status'] >= 100) {$status = "good";}
+	       elseif ($rows[0]['status'] <= -100) {$status = "bad";}
+	       else {$status = "middling";};
+	       echo " <div class=\"row ".$status."\">\n";
+	       echo "  <div class=\"cell\">".$rows[0]['source']."</div>\n";
+	       echo "  <div class=\"cell\">".$rows[0]['target']."</div>\n";
+	       echo "  <div class=\"cell\">".$rows[0]['status']."</div>\n";
+	       echo "  <div class=\"cell\">".$rows[0]['log_text']."</div>\n";
+	       echo "  <div class=\"cell\">".$rows[0]['log_time']."</div>\n";
+	       echo " </div>\n";
 
 	       /* And any subsequent log messages */
 	       $stmt = $conn->prepare("SELECT source,target,status,log_text,log_time FROM $dbtable WHERE source='$s' AND target='$t' AND status IS NULL AND log_time >= '$log_time' ORDER BY log_time DESC");
@@ -105,18 +104,10 @@ ORDER BY log_time DESC LIMIT 1");
 	       }
 	   } 
     }
-
-
-/*    foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-        echo $v;
-    	}*/
-
-
-    }
-catch(PDOException $e)
-    {
+}
+catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
-    }
+}
 
 $conn = null;
 echo "</div>";
