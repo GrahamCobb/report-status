@@ -79,7 +79,7 @@ ORDER BY log_time DESC LIMIT 1");
 	    if (count($rows) > 0) {
 	       /* Will be exactly one row */
 	       $log_time = $rows[0]['log_time'];
-	       if ($rows[0]['status'] >= 100) {$status = "good";}
+	       if ($rows[0]['status'] >= 100 && strtotime($log_time) > strtotime("24 hours ago")) {$status = "good";}
 	       elseif ($rows[0]['status'] <= -100) {$status = "bad";}
 	       else {$status = "middling";};
 	       echo " <div class=\"row ".$status."\">\n";
