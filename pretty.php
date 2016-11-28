@@ -67,7 +67,13 @@ try {
 	    $t = $combination["target"];
 
 	    /* Get latest status report */
-	    $stmt = $conn->prepare("SELECT source,target,status,log_text,log_time FROM $dbtable WHERE source='$s' AND target='$t' AND status IS NOT NULL ORDER BY log_time DESC LIMIT 1");
+	    $stmt = $conn->prepare("SELECT source,target,status,log_text,log_time
+FROM $dbtable
+WHERE source='$s'
+ AND target='$t'
+ AND status IS NOT NULL
+ AND (log_time >= NOW() - INTERVAL 1 MONTH)
+ORDER BY log_time DESC LIMIT 1");
 	    $stmt->execute();
 	    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	    if (count($rows) > 0) {
